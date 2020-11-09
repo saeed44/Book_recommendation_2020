@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../static/style.css"> 
+</head>
+
+<!--<body style="background: url(../static/background_img.jpg);"> -->
+
+<style>
+    body {
+      background-image: url(../static/background_img.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100%;
+    }
+</style>
+
+<h1 style="text-align:center">Book Lovers</h1>
+
+<!--<div class="container" style="text-align: center;">
+{% if message %}
+<p class="message">{{ message | safe}}</p>
+{% endif %}
+<form action="/submit" method="POST">
+<div class="form-group">
+<h3><center>Please enter a book you enjoyed:</center></h3>
+<input 
+type="text"
+name="book_name">    
+</div>
+<input type="submit" value="Enter" class="btn">
+</form>
+</div>
+--> 
+
+
+<div class="container" style="text-align: center;">
+{% if message %}
+<p class="message">{{ message | safe}}</p>
+{% endif %}
+<form action="/submit" method="POST">
+<div class="form-group">
+<h3> Please enter a book you enjoyed:</h3>
+<input list="books_list" name="book_name" id="book_list">
+</div>
+<datalist id="books_list">
+{% for title in books_titles %}
+<option value= "{{title}}" >
+{% endfor %}
+</datalist>
+<input type="submit" value="Enter" class="btn">
+</form>
+</div>
+
+
+
+
+
+<section id="popular books" style="overflow: hidden; height: 200px;">
+   <h3>Most popular books:</h3>
+
+   <marquee behavior="scroll"  direction="up" scrollamount="3">
+     <ol>
+     {% for book in most_rated_books %}
+     <li align="left" style="padding-bottom: 5mm;" >
+          {{ book }} </li>
+     {% endfor %}
+     </ol>
+    
+    </marquee>
+
+</section>
+          
+
+</body>
+</html>
